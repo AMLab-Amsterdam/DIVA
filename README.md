@@ -18,6 +18,12 @@ Used modules
 - Scikit-learn 0.19.1
 - Seaborn 0.9.0
 
+Malaria cell images
+-------------------
+
+The malaria cell images dataset can be found here: https://lhncbc.nlm.nih.gov/publication/pub9932
+
+
 Questions and Issues
 --------------------
 
