@@ -20,7 +20,7 @@ device = torch.device("cuda")
 kwargs = {'num_workers': 1, 'pin_memory': False}
 
 # Load model
-model = torch.load('../trained_diva_models_supervised/resnet_diva_top10_new_test.model')
+model = torch.load('../trained_diva_models_supervised/DIVA.model')
 
 model.eval()
 
