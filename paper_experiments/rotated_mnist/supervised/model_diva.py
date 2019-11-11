@@ -24,7 +24,10 @@ class px(nn.Module):
         self.de3[0].bias.data.zero_()
 
     def forward(self, zd, zx, zy):
-        zdzxzy = torch.cat((zd, zx, zy), dim=-1)
+        if zx is None:
+            zdzxzy = torch.cat((zd, zy), dim=-1)
+        else:
+            zdzxzy = torch.cat((zd, zx, zy), dim=-1)
         h = self.fc1(zdzxzy)
         h = h.view(-1, 64, 4, 4)
         h = self.up1(h)
