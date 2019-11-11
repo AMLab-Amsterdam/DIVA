@@ -154,16 +154,16 @@ if __name__ == "__main__":
     parser.add_argument('--aux_loss_multiplier_d', type=float, default=2000.,
                         help='multiplier for d classifier')
     # Beta VAE part
-    parser.add_argument('--beta_d', type=float, default=5.,
+    parser.add_argument('--beta_d', type=float, default=1.,
                         help='multiplier for KL d')
-    parser.add_argument('--beta_x', type=float, default=5.,
+    parser.add_argument('--beta_x', type=float, default=1.,
                         help='multiplier for KL x')
-    parser.add_argument('--beta_y', type=float, default=5.,
+    parser.add_argument('--beta_y', type=float, default=1.,
                         help='multiplier for KL y')
 
     parser.add_argument('-w', '--warmup', type=int, default=100, metavar='N',
                         help='number of epochs for warm-up. Set to 0 to turn warmup off.')
-    parser.add_argument('--max_beta', type=float, default=5., metavar='MB',
+    parser.add_argument('--max_beta', type=float, default=1., metavar='MB',
                         help='max beta for warm-up')
     parser.add_argument('--min_beta', type=float, default=0.0, metavar='MB',
                         help='min beta for warm-up')
@@ -179,7 +179,7 @@ if __name__ == "__main__":
     # Model name
     args.list_test_domain = [args.list_test_domain]
     print(args.outpath)
-    model_name = args.outpath + 'test_domain_' + str(args.list_test_domain[0]) + '_le_net_first_64_beta_5_seed_' + str(
+    model_name = args.outpath + 'test_domain_' + str(args.list_test_domain[0]) + '_diva_seed_' + str(
         args.seed)
     print(model_name)
 
