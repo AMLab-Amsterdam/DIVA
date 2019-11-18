@@ -100,16 +100,16 @@ class qzd(nn.Module):
     def __init__(self, d_dim, x_dim, y_dim, zd_dim, zx_dim, zy_dim):
         super(qzd, self).__init__()
 
-        self.conv1 = nn.Conv2d(3, 64, 3, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(32)
 
-        self.rn1 = nn.MaxPool2d(2, 2)
-        self.rn2 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn3 = nn.MaxPool2d(2, 2)
+        self.rn1 = IdResidualConvBlockBNResize(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn2 = IdResidualConvBlockBNIdentity(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn3 = IdResidualConvBlockBNResize(32, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn4 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn5 = nn.MaxPool2d(2, 2)
+        self.rn5 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn6 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn7 = nn.MaxPool2d(2, 2)
+        self.rn7 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
 
         self.fc11 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim))
         self.fc12 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim), nn.Softplus())
@@ -147,16 +147,16 @@ class qzx(nn.Module):
     def __init__(self, d_dim, x_dim, y_dim, zd_dim, zx_dim, zy_dim):
         super(qzx, self).__init__()
 
-        self.conv1 = nn.Conv2d(3, 64, 3, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(32)
 
-        self.rn1 = nn.MaxPool2d(2, 2)
-        self.rn2 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn3 = nn.MaxPool2d(2, 2)
+        self.rn1 = IdResidualConvBlockBNResize(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn2 = IdResidualConvBlockBNIdentity(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn3 = IdResidualConvBlockBNResize(32, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn4 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn5 = nn.MaxPool2d(2, 2)
+        self.rn5 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn6 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn7 = nn.MaxPool2d(2, 2)
+        self.rn7 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
 
         self.fc11 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim))
         self.fc12 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim), nn.Softplus())
@@ -194,16 +194,16 @@ class qzy(nn.Module):
     def __init__(self, d_dim, x_dim, y_dim, zd_dim, zx_dim, zy_dim):
         super(qzy, self).__init__()
 
-        self.conv1 = nn.Conv2d(3, 64, 3, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(64)
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1, bias=False)
+        self.bn1 = nn.BatchNorm2d(32)
 
-        self.rn1 = nn.MaxPool2d(2, 2)
-        self.rn2 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn3 = nn.MaxPool2d(2, 2)
+        self.rn1 = IdResidualConvBlockBNResize(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn2 = IdResidualConvBlockBNIdentity(32, 32, 3, padding=1, nonlin=nn.LeakyReLU)
+        self.rn3 = IdResidualConvBlockBNResize(32, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn4 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn5 = nn.MaxPool2d(2, 2)
+        self.rn5 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
         self.rn6 = IdResidualConvBlockBNIdentity(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
-        self.rn7 = nn.MaxPool2d(2, 2)
+        self.rn7 = IdResidualConvBlockBNResize(64, 64, 3, padding=1, nonlin=nn.LeakyReLU)
 
         self.fc11 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim))
         self.fc12 = nn.Sequential(nn.Linear(64 * 4 * 4, zd_dim), nn.Softplus())
@@ -235,7 +235,6 @@ class qzy(nn.Module):
         zy_scale = self.fc12(h) + 1e-7
 
         return zy_loc, zy_scale
-
 
 # Auxiliary tasks
 class qd(nn.Module):
