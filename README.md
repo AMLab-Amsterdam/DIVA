@@ -1,7 +1,11 @@
 DIVA: Domain Invariant Variational Autoencoders
 ================================================
 
+![DIVA](diva.png)
+
 by Maximilian Ilse (<ilse.maximilian@gmail.com>) and Jakub M. Tomczak, Christos Louizos and Max Welling
+
+
 
 Overview
 --------
