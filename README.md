@@ -4,6 +4,10 @@ by Maximilian Ilse (<ilse.maximilian@gmail.com>) and Jakub M. Tomczak, Christos 
 
 ![DIVA](diva.png)
 
+DIVA without z_d
+----------------
+As described in Appendix 5.1.7 while losing a good amount of interpretability, DIVA works even without z_d. Resulting in a, especially from an optimization perspective, simpler model. The code for a simpler DIVA is included in this repository as well.
+
 Overview
 --------
 
@@ -23,10 +27,6 @@ Malaria cell images
 -------------------
 
 The malaria cell images dataset can be found here: https://lhncbc.nlm.nih.gov/publication/pub9932
-
-DIVA without z_d
-----------------
-As described in Appendix 5.1.7 while losing a good amount of interpretability, DIVA works even without z_d. Resulting in a, especially from an optimization perspective, simpler model. The code for a simpler DIVA is included in this repository as well.
 
 
 Questions and Issues
